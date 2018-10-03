@@ -4,16 +4,12 @@
 #
 Name     : R-ritis
 Version  : 0.7.2
-Release  : 4
+Release  : 5
 URL      : https://cran.r-project.org/src/contrib/ritis_0.7.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ritis_0.7.2.tar.gz
 Summary  : Integrated Taxonomic Information System Client
 Group    : Development/Tools
 License  : MIT
-Requires: R-data.table
-Requires: R-solrium
-Requires: R-tibble
-Requires: R-vcr
 BuildRequires : R-data.table
 BuildRequires : R-solrium
 BuildRequires : R-tibble
@@ -39,11 +35,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1537778676
+export SOURCE_DATE_EPOCH=1538582758
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1537778676
+export SOURCE_DATE_EPOCH=1538582758
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
