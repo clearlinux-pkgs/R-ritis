@@ -4,7 +4,7 @@
 #
 Name     : R-ritis
 Version  : 0.7.6
-Release  : 8
+Release  : 9
 URL      : https://cran.r-project.org/src/contrib/ritis_0.7.6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ritis_0.7.6.tar.gz
 Summary  : Integrated Taxonomic Information System Client
