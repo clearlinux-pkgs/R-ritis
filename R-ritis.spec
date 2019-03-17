@@ -4,20 +4,28 @@
 #
 Name     : R-ritis
 Version  : 0.7.6
-Release  : 9
+Release  : 10
 URL      : https://cran.r-project.org/src/contrib/ritis_0.7.6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ritis_0.7.6.tar.gz
 Summary  : Integrated Taxonomic Information System Client
 Group    : Development/Tools
 License  : MIT
-Requires: R-data.table
-Requires: R-solrium
-Requires: R-tibble
-Requires: R-vcr
+Requires: R-jsonlite
+Requires: R-plyr
+Requires: R-purrr
+Requires: R-triebeard
+Requires: R-urltools
+Requires: R-yaml
 BuildRequires : R-data.table
+BuildRequires : R-jsonlite
+BuildRequires : R-plyr
+BuildRequires : R-purrr
 BuildRequires : R-solrium
 BuildRequires : R-tibble
+BuildRequires : R-triebeard
+BuildRequires : R-urltools
 BuildRequires : R-vcr
+BuildRequires : R-yaml
 BuildRequires : buildreq-R
 
 %description
@@ -39,10 +47,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1545251415
+export SOURCE_DATE_EPOCH=1552856824
 
 %install
-export SOURCE_DATE_EPOCH=1545251415
+export SOURCE_DATE_EPOCH=1552856824
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -78,8 +86,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library ritis|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  ritis || :
 
 
 %files
@@ -113,5 +120,56 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/ritis/help/ritis.rdx
 /usr/lib64/R/library/ritis/html/00Index.html
 /usr/lib64/R/library/ritis/html/R.css
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/any_match_count-fails-well.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/any_match_count-json.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/any_match_count-xml.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/any_match_count.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/hierarchy-fails-well.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/hierarchy_down.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/hierarchy_full.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/hierarchy_up.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/itis_facet.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/itis_group-fails-well.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/itis_group.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/itis_highlight.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/itis_search-fails-well.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/itis_search.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/jurisdiction_values.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/jurisdictional_origin-fails-well.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/jurisdictional_origin.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/jurisdictional_origin_values.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/kingdom_name-fails-well.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/kingdom_name.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/kingdom_names.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/publications-fails-well.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/publications-json.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/publications-xml.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/publications.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/record-fails-well.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/record-json.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/record-xml.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/record.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/search_common-fails-well.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/search_common-json.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/search_common-xml.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/search_common.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/search_scientific-fail-well.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/search_scientific-json.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/search_scientific-xml.yml
+/usr/lib64/R/library/ritis/tests/fixtures/vcr_cassettes/search_scientific.yml
+/usr/lib64/R/library/ritis/tests/test-all.R
+/usr/lib64/R/library/ritis/tests/testthat/helper-ritis.R
+/usr/lib64/R/library/ritis/tests/testthat/test-any_match_count.R
+/usr/lib64/R/library/ritis/tests/testthat/test-hierarchy.R
+/usr/lib64/R/library/ritis/tests/testthat/test-itis_facet.R
+/usr/lib64/R/library/ritis/tests/testthat/test-itis_group.R
+/usr/lib64/R/library/ritis/tests/testthat/test-itis_highlight.R
+/usr/lib64/R/library/ritis/tests/testthat/test-itis_search.R
+/usr/lib64/R/library/ritis/tests/testthat/test-jurisdiction.R
+/usr/lib64/R/library/ritis/tests/testthat/test-kingdoms.R
+/usr/lib64/R/library/ritis/tests/testthat/test-publications.R
+/usr/lib64/R/library/ritis/tests/testthat/test-record.R
+/usr/lib64/R/library/ritis/tests/testthat/test-search_common.R
+/usr/lib64/R/library/ritis/tests/testthat/test-search_scientific.R
 /usr/lib64/R/library/ritis/vign/ritis_vignette.Rmd
 /usr/lib64/R/library/ritis/vign/ritis_vignette.md

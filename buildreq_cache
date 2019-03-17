@@ -1,5 +1,11 @@
 0.7.6
 R-data.table
+R-jsonlite
+R-plyr
+R-purrr
 R-solrium
 R-tibble
+R-triebeard
+R-urltools
 R-vcr
+R-yaml
