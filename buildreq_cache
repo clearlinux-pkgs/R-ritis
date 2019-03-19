@@ -1,6 +1,10 @@
 0.7.6
+R-base64enc
+R-crul
 R-data.table
+R-dplyr
 R-jsonlite
+R-lazyeval
 R-plyr
 R-purrr
 R-solrium
@@ -8,4 +12,5 @@ R-tibble
 R-triebeard
 R-urltools
 R-vcr
+R-xml2
 R-yaml
