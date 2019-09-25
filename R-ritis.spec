@@ -4,38 +4,30 @@
 #
 Name     : R-ritis
 Version  : 0.7.6
-Release  : 17
+Release  : 18
 URL      : https://cran.r-project.org/src/contrib/ritis_0.7.6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ritis_0.7.6.tar.gz
 Summary  : Integrated Taxonomic Information System Client
 Group    : Development/Tools
 License  : MIT
-Requires: R-base64enc
 Requires: R-crul
-Requires: R-dplyr
-Requires: R-lazyeval
-Requires: R-xml2
-BuildRequires : R-base64enc
+Requires: R-data.table
+Requires: R-jsonlite
+Requires: R-solrium
+Requires: R-tibble
+Requires: R-vcr
 BuildRequires : R-crul
 BuildRequires : R-data.table
-BuildRequires : R-dplyr
 BuildRequires : R-jsonlite
-BuildRequires : R-lazyeval
-BuildRequires : R-plyr
-BuildRequires : R-purrr
 BuildRequires : R-solrium
 BuildRequires : R-tibble
-BuildRequires : R-triebeard
-BuildRequires : R-urltools
 BuildRequires : R-vcr
-BuildRequires : R-xml2
-BuildRequires : R-yaml
 BuildRequires : buildreq-R
 
 %description
 ritis
 =====
-[![Project Status: Active â The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![cran checks](https://cranchecks.info/badges/worst/ritis)](https://cranchecks.info/pkgs/ritis)
 [![Build Status](https://travis-ci.org/ropensci/ritis.svg?branch=master)](https://travis-ci.org/ropensci/ritis)
 [![Build status](https://ci.appveyor.com/api/projects/status/pvrc9muevha00fie/branch/master?svg=true)](https://ci.appveyor.com/project/sckott/ritis/branch/master)
@@ -50,13 +42,13 @@ ritis
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552963437
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1569371508
 
 %install
-export SOURCE_DATE_EPOCH=1552963437
+export SOURCE_DATE_EPOCH=1569371508
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -85,12 +77,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  ritis || :
+R CMD check --no-manual --no-examples --no-codoc ritis || :
 
 
 %files
